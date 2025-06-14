@@ -3,7 +3,7 @@ from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from datetime import datetime
 
-# Naming convention to support Alembic migrations
+
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
@@ -19,5 +19,5 @@ class Message(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    serialize_rules = ()  # Optional: add rules like ('-some_field',) to exclude fields
+    serialize_rules = () 
 
